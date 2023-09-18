@@ -1,0 +1,138 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[a4paper,top=2cm,bottom=2cm,left=2.5cm,right=2cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{Micro-Credentials Certification for Digital Learning and Assessment Results}
+\author{
+    Oliver Cvetkovski (student), Josef Spillner (supervisor) \\
+    cvetkoli@students.zhaw.ch, josef.spillner@zhaw.ch \\
+    \textit{Zurich University of Applied Sciences} \\
+    Winterthur, Switzerland
+}
+
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+    This research report delves into the transformative power of micro-credentials in lifelong learning, emphasizing their role in empowering individuals to continually acquire and showcase new skills. It investigates existing platforms, explores standardization initiatives, and addresses the challenges surrounding the issuance, storage, verification, and management of these digital credentials. The report culminates in a blockchain-native proof of concept proposal for managing micro-credentials, offering a glimpse of a future where micro-credentials seamlessly integrate into lifelong learning, providing individuals with dynamic and verifiable tools for skill validation and recognition.
+
+    \vspace{.15cm} \textbf{Keywords} --- Open Education, Micro-Credentials, Lifelong Learning, Blockchain
+
+\end{abstract}
+
+
+\begin{multicols}{2}
+
+    \section{Overview}
+
+    In the fast-paced, ever-evolving landscape of the modern world, the need for continuous learning and upskilling has become paramount. Traditional educational systems, while valuable, often lack the agility required to keep pace with the rapidly changing demands of industries and the job market.
+
+    Traditional education, a time-bound process characterized by structured degree programs and formal diplomas, has long been the cornerstone of knowledge acquisition. However, it has inherent limitations that hinder its ability to meet the demands of contemporary society and the modern workforce. Students who enroll in schools or universities follow predefined courses and receive degrees or diplomas that are often considered their ticket to a stable career. However, this model has proven insufficient in today's reality.
+
+    One of the fundamental drawbacks of traditional education is its limited emphasis on lifelong learning. Once individuals complete formal degrees or certifications, their education often concludes. As new technologies emerge, job roles evolve, and industries undergo paradigm shifts, the skills required for success in the workforce change accordingly. Unfortunately, traditional educational institutions, constrained by established structures and processes, find it challenging to adapt quickly. The discontinuity between formal education and the rapidly changing industry needs has left many individuals ill-equipped to combat the changing landscape of work and society, as they possess outdated skills and knowledge acquired during formal education.
+
+    Another significant challenge associated with traditional education is the often cumbersome process of verifying diplomas and achievements. Employers, academic institutions, and other stakeholders frequently encounter difficulties confirming the authenticity and relevance of qualifications obtained through formal education. This verification process often involves manual checks, contacting educational institutions, and navigating bureaucratic procedures. This approach is time-consuming, resource-intensive, prone to errors, and particularly challenging for employers assessing numerous candidates. On top of that, the risk of diplomas being lost or damaged further compounds the verification process, often resulting in delays and incurring additional costs for re-issuance.
+
+    Access to traditional education remains a significant challenge for many individuals, whether due to financial constraints, social status, or geographical barriers. The cost associated with formal education, including tuition fees, accommodation, and other ancillary expenses, can be prohibitive for a considerable portion of the population. This exclusionary aspect hinders the potential of numerous talented individuals who may not have the means to pursue conventional educational pathways.
+
+    In response to these challenges, the emergence of Open Education and Open Educational Resources has heralded a transformative paradigm in education. Open Education is a dynamic academic approach that champions accessibility, flexibility, and inclusivity in learning \cite{Blessinger2016Open}. It recognizes that education should not be confined to a specific stage in the human lifecycle but should be an ongoing journey. Open Education seeks to break down traditional barriers and democratize learning by making it available to a broader spectrum of individuals, regardless of their socio-economic backgrounds, geographical locations, or life stages.
+
+    Micro-credentials represent digital badges akin to academic or professional certifications, encapsulating specific skills or achievements. However, what sets micro-credentials apart is their agility. They are modular, stackable, and tailor-made for the dynamic world of lifelong learning. They enable learners to acquire focused competencies, regardless of their previous educational milestones, effectively bridging the gaps in traditional education systems, thus aligning seamlessly with the ethos of open education. The inherent modularity of micro-credentials fosters a culture of inclusivity, allowing learners to embark on personalized learning journeys. In this context, our research scrutinizes the multifaceted landscape of micro-credentials, encompassing existing platforms, standardization efforts, and the intricate challenges of issuing, storing, verifying, and managing these digital badges. The report completes with a visionary proof of concept for a blockchain-native platform for administering micro-credentials.
+
+    \section{Current Platforms}
+    The landscape of lifelong learning through micro-certifications is rich and diverse, with numerous platforms offering tailored learning experiences and digital badges. In this section, we explore a selection of prominent platforms with their unique approach to teaching, evaluation, issuance, storage, and validation of micro-credentials. These platforms exemplify the versatility and dynamism of micro-certifications in contemporary education.
+
+    \begin{itemize}
+        \item \textbf{Coursera}, a well-established leader in online education, offers Specializations and MasterTrack Certificates. Specializations are a series of courses focused on specific topics, often culminating in a capstone project \cite{CourseraSpecializations}. MasterTrack Certificates represent a path toward a full master's degree program and include credit-bearing courses. Coursera emphasizes a mix of video lectures, quizzes, and peer-graded assignments in its courses \cite{CourseraMasterTrack}.
+        \item \textbf{edX}, another prominent player in online education, provides access to a wide range of micro-certifications, including individual courses and MicroMasters Programs. MicroMasters Programs consist of a series of graduate-level courses, offering a pathway to credit in select universities. edX employs video lectures, interactive assessments, and discussions for its courses.
+        \item \textbf{Udacity} specializes in Nanodegree Programs, which are industry-focused micro-certifications. These programs are designed in collaboration with tech giants like Google and IBM. They employ a project-based learning approach and include mentor support.
+        \item \textbf{Microsoft's Professional Programs} offer micro-certifications in fields like data science and artificial intelligence. These programs involve a series of courses and hands-on labs, aligning with industry needs.
+        \item \textbf{IBM's Skills Academy} provides micro-certifications that equip learners with practical skills in emerging technologies. These micro-certifications are backed by one of the tech industry's giants and focus on hands-on experience.
+        \item \textbf{Pluralsight} offers a vast library of courses, with a focus on technology and software development. While not necessarily in the traditional micro-certification format, the platform enables learners to develop and validate specific skills through its courses.
+        \item \textbf{Udemy} offers Micro Courses on a wide array of topics. These short courses enable learners to acquire specific skills quickly. However, they may not always follow a formal credentialing process.
+    \end{itemize}
+
+    Even traditional educational institutions, including universities, have recognized the significance of micro-credentials. They are adopting innovative solutions to offer continuous education and empower learners to expand their horizons. For instance:
+
+    \begin{itemize}
+        \item \textbf{ZHAW (Zurich University of Applied Sciences)} provides Certificates of Advanced Studies, allowing learners to gain expertise in specific areas
+        \item \textbf{Add the University from Brasil}
+        \item \textbf{Faculty of Computer Science and Engineering in Skopje} offers resource-reduced modules outside of the degree program, enabling students to explore topics beyond their majors.
+    \end{itemize}
+
+    These platforms diverge in their pedagogical approaches, catering to a broad spectrum of learning preferences. Some emphasize instructor-led courses, while others promote self-paced learning. For example, Coursera's Specializations are a set of modules, often with hands-on projects and peer assessments, culminating in a specialization certificate. In contrast, Pluralsight's skill development concentrates on video-based learning modules.
+
+    The evaluation criteria on these platforms also vary significantly. Coursera and edX often employ a combination of quizzes, assignments, peer assessments, and proctored exams for evaluation. Udacity, on the other hand, emphasizes project-based assessments. Microsoft's Professional Programs often include industry-recognized certification exams in their evaluation process.
+
+    When it comes to credentialing, each platform has devised its unique approach. Coursera and edX offer certificates for individual courses and specialized credentials for completing their course series. Udacity's Nanodegrees are comprehensive programs made by multiple modules and a final project. IBM's Skills Academy provides badges aligned with specific skills and roles in the tech industry.
+
+    One notable challenge in this landscape is the fragmentation of credential storage. Learners who accumulate micro-credentials from various platforms may manage a disparate collection of digital badges. The absence of a standardized repository can complicate showcasing these credentials to potential employers or educational institutions.
+
+    Furthermore, the validation of these micro-credentials varies widely. While some platforms offer straightforward verification through unique URLs or codes, others rely on proprietary systems for validation. This disparity in validation mechanisms challenges employers and educational institutions aiming to verify micro-credential authenticity.
+
+    In the subsequent sections of this report, we delve into the standardization efforts and challenges in the issuance, storage, verification, and management of micro-credentials, shedding light on the intricacies of this dynamic educational landscape.
+
+    \section{Standardization}
+
+    The growing importance of micro-credentials has spurred global efforts to standardize their issuance and recognition. These initiatives aim to create a cohesive framework for micro-credentials, enhancing their credibility and utility in the job market. With that come a few notable endeavors.
+
+    \subsection{W3C Verifiable Credentials}
+    The W3C Verifiable Credentials initiative is a collaborative effort aimed at standardizing the means by which verifiable digital credentials are issued, verified, and managed. These credentials extend beyond micro-credentials to encompass a wide array of digital attestations, including educational certificates, professional qualifications, and personal assertions.
+
+    At its core, the initiative proposes a comprehensive data model for verifiable credentials. This data model defines the structure and semantics of digital credentials, encompassing attributes, claims, and cryptographic proofs.
+
+    The initiative advocates for the use of Decentralized Identifiers (DIDs). DIDs are self-sovereign identifiers that enable individuals to manage and control their digital identities. This is further extended by verifiable presentations -- the means of sharing and presenting verifiable credentials to third parties in a secure and privacy-preserving manner. The emphasis on DIDs and verifiable presentations empowers individuals with greater privacy and control over their digital credentials. Students and learners can selectively disclose specific attributes or claims from their credentials, enhancing privacy and data autonomy.
+
+    The W3C Verifiable Credentials initiative brings forth a range of benefits and impacts that resonate deeply within the realm of micro-credentials. By establishing standardized data models and protocols, the initiative fosters interoperability between different systems and platforms. This interoperability holds the promise of creating a seamless ecosystem for micro-credentials, where credentials can be universally recognized and verified. The cryptographic underpinnings of verifiable credentials ensure trust and integrity in the verification process. Employers and educational institutions can independently verify the authenticity of micro-credentials with confidence.
+
+    \subsection{EU}
+    The European Union (EU) has been actively engaged in shaping the landscape of micro-credentials through a comprehensive proposal linked to the recommendation "A European approach to micro-credentials". The EU's proposal for micro-credentials emerged in response to the evolving needs of education and the labor market. Acknowledging the significance of lifelong learning and the demand for flexible, skills-focused education, the EU has set forth a framework to address these challenges.
+
+    The EU's proposal for micro-credentials is underpinned by several key objectives. A primary aim of the proposal is to enhance access to education and training by promoting the recognition and portability of micro-credentials. By doing so, the EU seeks to facilitate the acquisition of new skills and competencies throughout an individual's career.
+
+    The proposal places a strong emphasis on fostering employability by aligning micro-credentials with labor market needs. This involves the identification and development of micro-credentials that directly contribute to an individual's readiness for employment.
+
+    Quality assurance is a critical component of the EU's proposal. The framework includes mechanisms for ensuring the quality and reliability of micro-credentials, allowing learners and employers to have confidence in the value of these credentials. To realize these objectives, the EU's proposal for micro-credentials outlines several implementation strategies.
+
+    The EU aims to enhance the recognition of micro-credentials by encouraging their inclusion in national qualifications frameworks. This recognition will facilitate the transferability of micro-credentials within and across member states.
+
+    The EU's proposal for micro-credentials carries significant benefits and potential impacts. By promoting access to a diverse range of micro-credentials, the proposal expands opportunities for individuals to acquire new skills and competencies, regardless of their educational background or career stage.
+
+    \subsection{The Common Micro-credentials Framework}
+    Developed by the European MOOC Consortium, an alliance comprising prominent entities in the field of Massive Open Online Courses (MOOCs), the Common Microcredential Framework (CMF) represents a significant stride in harmonizing microcredentialing practices across Europe. This consortium collectively offers nearly 3,000 MOOCs, representing over 400 higher education institutions (HEIs) and a multitude of European languages, thereby constituting a formidable network \cite{konings_2023}.
+
+    At the core of the CMF lies the utilization of the European Qualification Framework (EQF) in conjunction with national qualification frameworks from recognized universities. The EQF serves as a standardized reference framework within Europe, enhancing the transparency and comprehensibility of qualifications across diverse countries and educational systems.
+
+    Microcredentials conforming to the Common Microcredential Framework (CMF) must meet specific criteria. They require a workload of 4-6 ECTS (100-150 hours) encompassing revision and a summative assessment for academic credit. Qualification levels must align with Levels 5-8 in the European Qualification Framework, equivalent levels in the university's national framework, or Level 5 criteria in the European Credit Transfer and Accumulation System (ECTS). Summative assessments are essential, and they must employ reliable ID verification methods. Additionally, a comprehensive transcript detailing learning outcomes, study hours, EQF level, and credit points earned is imperative for CMF-aligned micro-credentials.
+
+    \section{Micro-Credentials On-Chain}
+
+    This Proof of Concept (PoC) represents a significant endeavor towards addressing the challenge of micro-credentialing, emphasizing the crucial requirement for secure, user-friendly, and verifiable digital badges. At its essence, this PoC envisions a blockchain-native approach to dispense, preserve, validate, and oversee micro-credentials, heralding a fresh era of confidence and openness in the Open Education movement.
+
+    Let's start by addressing the SWITCH Verify platform. SWITCH Verify is a Swiss-based service primarily designed for educational institutions, especially universities and colleges. It focuses on robust identity verification and authentication services, ensuring the security and reliability of user identities. Through single sign-on (SSO) solutions and federated identity management, SWITCH Verify simplifies access to multiple services within educational ecosystems.
+
+    Our PoC builds upon the principles of SWITCH Verify but takes them a step further by embracing blockchain technology. Unlike traditional systems where verification processes often rely on centralized authorities, our PoC leverages the decentralized power of the Internet Computer - producing one of the key differentiators of our PoC. Both the frontend and backend operations are executed on-chain, within the Internet Computer ecosystem, ensuring the highest level of security and immutability, enhancing the trustworthiness of the micro-credential issuance process.
+
+    In its current iteration, the PoC demonstrates the feasibility of a blockchain-native micro-credential solution. It showcases the issuance of micro-credentials on the Internet Computer, effectively proving the viability of this approach. However, the roadmap extends beyond this initial phase. The functionality of the micro-credentials platform extends significantly in the upcoming VT1 project. The features that align with the vision of modern credentialing include the ability to generate and persist verifiable credentials for students at institutions like ZHAW, facilitate requests from companies to access specific claims, and provide students with granular control over the disclosure of their credentials. The extended platform will leverage the inherent security of blockchain technology, prioritizing user privacy and data security and addressing critical concerns in the digital credentialing landscape. The beauty of this blockchain-native solution lies in seamlessly integrating micro-credentials into the fabric of lifelong learning and offering individuals a dynamic and verifiable means of showcasing their skills and achievements.
+
+    In essence, our PoC demonstrates the potential of blockchain-native solutions in micro-credentialing. It lays the foundation for a comprehensive platform that empowers learners, educational institutions, and employers, creating a more transparent, efficient, and trustworthy ecosystem for digital credentials.
+
+    \bibliographystyle{plain}
+    \bibliography{sample}
+
+\end{multicols}
+
+\end{document}
